@@ -1,7 +1,8 @@
 # NaraeAsynchronous
 
-"날개" 를 뜻하는 대한민국 순 한글말, - 나래 -. 
-이제 당신의 코드에도 날개를 부여합니다(?) 
+"날개" 를 뜻하는 대한민국 순 한글말, 나래 와 비동기를 뜻하는 Asynchronous 를 합하였습니다.
+
+이제 당신의 Thread에도 날개를 부여합니다(?) 
 
 ## 구성
 
@@ -10,7 +11,6 @@
 :app -> 본 라이브러리를 사용하기에 앞서 사용법을 확인하고 싶으신 경우, 샘플로 확인할 수 있습니다.
 
 * NaraeTask, NaraeInterface 에 대한 예제 제공
-* 추후 나머지 샘플 제공 예정
 
 :library -> 라이브러리 본체입니다.
 
@@ -54,7 +54,7 @@ naraeTask.execute();```
         }
     }
     
-구현시 <> 에는 java.lang.**Object** 를 상속하는 객체가 들어가야 합니다.
+구현시 <> 에는 **Object** 를 상속하는 객체가 들어가야 합니다.
     
 자세한 사항은 [예제 링크](https://github.com/WindSekirun/NaraeAsynchronous/blob/master/app/src/main/java/windsekirun/naraeasynchronous/demo/NaraeTaskTestActivity.java)를 참고하세요.
 
@@ -64,9 +64,10 @@ naraeTask.execute();```
 
 ## Special Thanks
 
-* NaraeTask 에서 작업 처리에 있어 많은 도움을 준 [IrenSekirun[(http://github.com/irensekirun)
+* NaraeTask 에서 작업 처리에 있어 많은 도움을 준 [IrenSekirun](http://github.com/irensekirun)
 * 이 라이브러리를 제대로 완성시키겠다고 다짐을 하게 만들은 [Palette Team](http://twitter.com/palette_twit)
-* 그리고 밤 늦게까지 코딩하는 데에 지치지 않고 달리게 해 준 코카콜라 제로 (...)
+* 그리고 밤 늦게까지 코딩하는 데에 지치지 않고 달리게 해 준 [코카콜라 제로](https://twitter.com/WindSekirun/status/612536852147404800)
+* 일의 소중함을 깨닳게 해준 [그 분...](https://lh3.googleusercontent.com/-XQ4DM6vy-5Q/VYcJGiQIFLI/AAAAAAAAABw/1FZDzRKVMYI/s960/KakaoTalk_Photo_2015-06-22-03-55-13.jpeg)
 
 ## 라이센스
 
