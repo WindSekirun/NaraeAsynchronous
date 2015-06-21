@@ -19,13 +19,11 @@
 * **NaraeMain.java** - 콜백이 없고, 단순히 메인 스레드를 생성해야 될 때 사용합니다.
 
 ```NaraeMain naraeMain = new NaraeMain(Runnable runnable);
-
 naraeMain.execute(); ```
 
 * **NaraeAsync.java** - 콜백이 없고, 별도 스레드를 생성해야 될 때 사용합니다.
 
 ```NaraeAsync naraeAsync = new NaraeAsync(Runnable runnable, int poolSize, String taskType);
-
 naraeAsync.execute();```
 
 * poolsize: 풀 사이즈, 한번에 돌아갈 수 있는 스레드의 개수를 제한합니다. (기본 값: 기기의 코어 갯수 + 1)
@@ -36,7 +34,6 @@ poolsize, tasktype의 경우 생략이 가능합니다.
 * **NaraeTask.java** - 콜백이 있고, 별도 스레드를 생성해야 될 때 사용합니다.
 
 ```NaraeTask naraeTask = new NaraeTask(NaraeInterface naraeInterface, int poolsize);
-
 naraeTask.execute();```
 
       public class NT implements NaraeInterface<String> {
