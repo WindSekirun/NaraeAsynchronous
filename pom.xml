@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.windsekirun</groupId>
+    <artifactId>naraeasynchronous</artifactId>
+    <version>1.0.0</version>
+    <packaging>aar</packaging>
+    <name>NaraeAsynchronous</name>
+    <description>Easy thread maker in android, use poolsize / tasktype.</description>
+    <url>http://www.github.com/windsekirun/naraeasynchronous</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/WindSekirun/NaraeAsynchronous/blob/master/License.md</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>WindSekirun</name>
+            <email>windsekirun@gmail.com</email>
+            <organization>Palette Team</organization>
+            <organizationUrl>http://twitter.com/palette_twit</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git@github.com:windsekirun/naraeasynchronous.git</connection>
+        <developerConnection>scm:git:git@github.com:windsekirun/naraeasynchronous.git</developerConnection>
+        <url>git@github.com:windsekirun/naraeasynchronous.git</url>
+    </scm>
+
+</project>
