@@ -10,6 +10,8 @@
 
 :app -> 본 라이브러리를 사용하기에 앞서 사용법을 확인하고 싶으신 경우, 샘플로 확인할 수 있습니다.
 
+[예제 다운로드](https://github.com/WindSekirun/NaraeAsynchronous/releases)
+
 * NaraeTask, NaraeInterface 에 대한 예제 제공
 
 :library -> 라이브러리 본체입니다.
