@@ -6,7 +6,7 @@
     <groupId>com.github.windsekirun</groupId>
     <artifactId>naraeasynchronous</artifactId>
     <version>1.0.0</version>
-    <packaging>aar</packaging>
+    <packaging>jar</packaging>
     <name>NaraeAsynchronous</name>
     <description>Easy thread maker in android, use poolsize / tasktype.</description>
     <url>http://www.github.com/windsekirun/naraeasynchronous</url>
