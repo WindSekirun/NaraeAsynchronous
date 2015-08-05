@@ -81,3 +81,10 @@ naraeTask.execute();```
 
 * 첫 커밋
 * 기존에 존재하던 NaraeAsync 저장소 삭제
+
+## 다른 나래 라이브러리
+* **[NaraePreference](https://github.com/WindSekirun/NaraePreference)** - SharedPreference Wrapper
+* **[NaraeAsynchronous](http://www.windsekirun.wo.tc/NaraeAsynchronous)** - Thread Executor
+* **[NaraePicker](http://www.windsekirun.wo.tc/NaraePicker)** - Multi Image Select
+* **[NaraeResizer](https://github.com/WindSekirun/NaraeResizer)** - Bitmap Resizer
+* **[NaraeTextView](http://www.windsekirun.wo.tc/NaraeTextView)** - Clickable TextView
