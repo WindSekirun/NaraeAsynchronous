@@ -1,4 +1,4 @@
-# NaraeAsynchronous
+# NaraeAsynchronous [![Build Status](https://travis-ci.org/AngeloidTeam/NaraeAsynchronous.svg?branch=master)](https://travis-ci.org/AngeloidTeam/NaraeAsynchronous)
 
 "날개" 를 뜻하는 대한민국 순 한글말, 나래 와 비동기를 뜻하는 Asynchronous 를 합하였습니다.
 
