@@ -25,7 +25,7 @@ public class NaraeTaskTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("NaraeTask 테스트 액티비티");
+        toolbar.setTitle("NaraeTask Test Activity");
         toolbar.setTitleTextColor(0xffffffff);
         resultBox = (TextView) findViewById(R.id.textView);
         Button startButton = (Button) findViewById(R.id.button);
@@ -35,7 +35,22 @@ public class NaraeTaskTestActivity extends AppCompatActivity {
                 NaraeTask naraeTask = new NaraeTask(new NT(), 8);
                 naraeTask.execute();
                 resultBox.setText("");
-                TextAppend("작업을 시작합니다");
+                TextAppend("Starting WORKING");
+
+                new NaraeTask(new NaraeInterface<String>() {
+
+                    @Override
+                    public String doInBackground() {
+                        return null;
+                    }
+
+                    @Override
+                    public void onPostExecute(String s) {
+
+                    }
+                }).execute();
+
+
             }
         });
     }
@@ -59,8 +74,8 @@ public class NaraeTaskTestActivity extends AppCompatActivity {
 
         @Override
         public void onPostExecute(String s) {
-            TextAppend("메인 스레드에서의 작업이 완료되었습니다!");
-            TextAppend("작업된 내용의 결과는 아래와 같습니다.");
+            TextAppend("Working done");
+            TextAppend("Result:");
             TextAppend(s);
         }
     }

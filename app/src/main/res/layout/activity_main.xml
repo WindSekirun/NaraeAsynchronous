@@ -18,7 +18,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="테스트 시작!"
+        android:text="Start!"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -31,7 +31,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="결과가 이 곳에 표시됩니다"
         android:id="@+id/textView"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
