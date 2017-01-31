@@ -1,90 +1,168 @@
-# NaraeAsynchronous [![Build Status](https://travis-ci.org/AngeloidTeam/NaraeAsynchronous.svg?branch=master)](https://travis-ci.org/AngeloidTeam/NaraeAsynchronous)
+# NaraeAsynchronous
+NaraeAsynchronous is Easy-Make Main/Background threading and optimized multi-threading working such as getting image from variable request.
 
-"날개" 를 뜻하는 대한민국 순 한글말, 나래 와 비동기를 뜻하는 Asynchronous 를 합하였습니다.
+I made this library cause AsyncTask's poolsize is too small in various environment, this can be make lack of my application.
 
-이제 당신의 Thread에도 날개를 부여합니다(?) 
+## Meaning
+NaraeAsynchronous is compound word between "나래"(Narae) which means "Wing" in traditional korean word and Asynchronous.
 
-## 구성
+Now, I'll give you wings on your Thread!
 
-이 저장소는 두 가지의 모듈로 구성되어 있습니다.
+## Features
 
-:app -> 본 라이브러리를 사용하기에 앞서 사용법을 확인하고 싶으신 경우, 샘플로 확인할 수 있습니다.
+### Generate Main Thread 
 
-[예제 다운로드](https://github.com/WindSekirun/NaraeAsynchronous/releases)
+**cannot be use as a UI Thread, use runOnUIThread instead.**
 
-* NaraeTask, NaraeInterface 에 대한 예제 제공
-
-:library -> 라이브러리 본체입니다.
-
-## 사용법 
-
-* **NaraeMain.java** - 콜백이 없고, 단순히 메인 스레드를 생성해야 될 때 사용합니다.
-
-```NaraeMain naraeMain = new NaraeMain(Runnable runnable);
-naraeMain.execute(); ```
-
-* **NaraeAsync.java** - 콜백이 없고, 별도 스레드를 생성해야 될 때 사용합니다.
-
-```NaraeAsync naraeAsync = new NaraeAsync(Runnable runnable, int poolSize, String taskType);
-naraeAsync.execute();```
-
-* poolsize: 풀 사이즈, 한번에 돌아갈 수 있는 스레드의 개수를 제한합니다. (기본 값: 기기의 코어 갯수 + 1)
-* tasktype: 같은 풀이라도 다른 작업이란 것을 알려줄 수 있는 변수입니다. (기본 값: 랜덤 5글자 생성)
-
-poolsize, tasktype의 경우 생략이 가능합니다.
-
-* **NaraeTask.java** - 콜백이 있고, 별도 스레드를 생성해야 될 때 사용합니다.
-
-```NaraeTask naraeTask = new NaraeTask(NaraeInterface naraeInterface, int poolsize);
-naraeTask.execute();```
-
-      public class NT implements NaraeInterface<String> {
-        @Override
-        public String doInBackground() {
-            String generated = "";
-
-            for (int i = 0; i < 100; i++) {
-                generated = generated + " " + RandomAttributes.getRandomTaskType();
-            }
-
-            return generated;
-        }
-
-        @Override
-        public void onPostExecute(String s) {
-            TextAppend(s);
-        }
+````
+NaraeMain naraeMain = new NaraeMain(new Runnable() {
+    @Override
+    public void run() {
+         // TODO: Do something!
     }
-    
-구현시 <> 에는 **Object** 를 상속하는 객체가 들어가야 합니다.
-    
-자세한 사항은 [예제 링크](https://github.com/WindSekirun/NaraeAsynchronous/blob/master/app/src/main/java/windsekirun/naraeasynchronous/demo/NaraeTaskTestActivity.java)를 참고하세요.
+});
+naraeMain.execute();
+````
 
-## 라이브러리 적용법
+Do you want simple-code?
 
-* 현재 수동배포밖에 지원하고 있지 않으나 maven repo 배포 예정에 있습니다. 
+````
+new NaraeMain(new Runnable() {
+    @Override
+    public void run() {
+         // TODO: Do something!
+    }
+}).execute();
+````
 
-## Special Thanks
+NaraeMain class has one methods, ````execute()````.
 
-* NaraeTask 에서 작업 처리에 있어 많은 도움을 준 [IrenSekirun](http://github.com/irensekirun)
-* 이 라이브러리를 제대로 완성시키겠다고 다짐을 하게 만들은 [Palette Team](http://twitter.com/palette_twit)
-* 그리고 밤 늦게까지 코딩하는 데에 지치지 않고 달리게 해 준 [코카콜라 제로](https://twitter.com/WindSekirun/status/612536852147404800)
-* 일의 소중함을 깨닳게 해준 [그 분...](https://lh3.googleusercontent.com/-XQ4DM6vy-5Q/VYcJGiQIFLI/AAAAAAAAABw/1FZDzRKVMYI/s960/KakaoTalk_Photo_2015-06-22-03-55-13.jpeg)
+### Generate Background Thread
 
-## 라이센스
+````
+NaraeAsync naraeAsync = new NaraeAsync(new Runnable() {
+   @Override
+   public void run() {
+       // TODO: Do something!
+   } 
+});
+naraeAsync.execute();
+````
 
-이 라이브러리는 MIT License를 사용합니다. [라이센스 전문](https://github.com/WindSekirun/NaraeAsynchronous/blob/master/License.md)
+Do you want simple-code?
 
-## 변경점
+````
+new NaraeAsync(new Runnable() {
+    @Override
+    public void run() {
+        //TODO: Do something!
+    }
+}).execute();
+````
 
-**v 1.0.0** (2015.06.22)
+This features has Compatibility code of AsyncTask.
 
-* 첫 커밋
-* 기존에 존재하던 NaraeAsync 저장소 삭제
+````
+new NaraeAsync(new Runnable() {
+    @Override
+    public void run() {
+        //TODO: Do something!
+    }
+}).executeOnExecutor();
+````
 
-## 다른 나래 라이브러리
-* **[NaraePreference](https://github.com/WindSekirun/NaraePreference)** - SharedPreference Wrapper
-* **[NaraeAsynchronous](http://www.windsekirun.wo.tc/NaraeAsynchronous)** - Thread Executor
-* **[NaraePicker](http://www.windsekirun.wo.tc/NaraePicker)** - Multi Image Select
-* **[NaraeResizer](https://github.com/WindSekirun/NaraeResizer)** - Bitmap Resizer
-* **[NaraeTextView](http://www.windsekirun.wo.tc/NaraeTextView)** - Clickable TextView
+#### Constructor
+* Runnable ````runnable```` : Compulsory Object, Runnable object to run
+* int ````poolSize```` : Optional Object, Pool size to execute multi-threading. Default value provided.
+  * Basic Mode: Core Count + 1;
+  * AsyncTask compatibility mode: Available Core Count + 1;
+* String ````taskType```` : Optional Object, Task type. Default value provided.
+
+#### License
+````NaraAsync```` Task have Compatibility code of AsyncTask.
+
+````
+ Copyright (C) 2008 The Android Open Source Project
+
+ Licensed under the Apache License, Version 2.0 (the "License")
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+````
+
+### Combining Background threading + Main threading
+This features provide you to execute background thread and execute main thread after executing background thread.
+
+````
+NaraeTask naraeTask = new NaraeTask(new NaraeInterface() {
+    @Override
+    public Object doInBackground() {
+        return null;
+    }
+
+    @Override
+    public void onPostExecute(Object o) {
+
+    }
+});
+naraeTask.execute();
+````
+
+also, you can use simple-code.
+
+````
+ new NaraeTask(new NaraeInterface() {
+    @Override
+    public Object doInBackground() {
+        return null;
+    }
+
+    @Override
+    public void onPostExecute(Object o) {
+
+    }
+}).execute();
+````
+
+also, you can give specific return type.
+
+````
+new NaraeTask(new NaraeInterface<String>() {
+    @Override
+    public String doInBackground() {
+        return null;
+    }
+
+    @Override
+    public void onPostExecute(String s) {
+
+    }
+}).execute();
+````
+
+#### Constructor
+* Runnable ````runnable```` : Compulsory Object, Runnable object to run
+* int ````poolSize```` : Optional Object, Pool size to execute multi-threading. Default value provided.
+  * Basic Mode: Core Count + 1;
+  * AsyncTask compatibility mode: Available Core Count + 1;
+
+## Changes
+**v 1.1.0** (2017. 01. 31)
+* adding AsyncTask compatibility mode in NaraeAsync
+* Language change: Korean -> English
+* Refactoring some code
+* Rewrite README.md
+
+**v 1.0.0** (2015. 06. 22)
+* Inital Commit
+
+## Contacts
+"pyxis.moe#gmail.com".replace("#", "@");
+
+## License
+Regards to my philosophy, All library disributed by MIT License, You can see License File in [here](https://github.com/PyxisDev/pyxisdev.github.io/blob/master/LICENSE)
