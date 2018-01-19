@@ -1,3 +1,7 @@
+## Deprecated
+Please use RichUtils.runAsync() in [RichUtilsKt](https://github.com/WindSekirun/RichUtilsKt), it interop with kotlin and java.
+
+
 # NaraeAsynchronous
 NaraeAsynchronous is Easy-Make Main/Background threading and optimized multi-threading working such as getting image from variable request.
 
